@@ -7,7 +7,7 @@ class Usuario{
     public $foto;
  
 
-    public function __constructor($db){
+    public function __construct($db){
         $this->conexao = $db;
     }
     /*
@@ -46,7 +46,7 @@ public function login(){
     $this->senha = md5($this->senha);
 
     $stmt->bindParam(1,$this->nomeusario);
-    $stmt->binParam(2,this->senha);
+    $stmt->binParam(2,$this->senha);
 
     $stmt->execute();
     
@@ -78,7 +78,7 @@ public function cadastro(){
     $stmt->bindParam(":s",$this->senha);
     $stmt->bindParam(":f",$this->foto);
 
-    if($stmt-<execute()){
+    if($stmt->execute()){
         return true;
     }
     else{
@@ -91,8 +91,8 @@ public function alterarFoto(){
 
     $stmt = $this->conexao->prepare($query);
 
-    $stmt->bindParam("f:"),$this->foto);
-    $stmt->bindParam("i:"),$this->id);
+    $stmt->bindParam(":f",$this->foto);
+    $stmt->bindParam(":i",$this->id);
 
     if($stmt->execute()){
         return true;
