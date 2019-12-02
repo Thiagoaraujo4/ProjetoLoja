@@ -20,7 +20,7 @@ include_once "../../domain/detalhepedido.php";
 $database = new Database();
 $db = $database->getConnection();
 
-$detalhepedido = new detalhepedido($db);
+$detalhepedido = new Detalhepedido($db);
 /*
 O cliente ira enviar os dados no formato json. Porém nós precisamos os dados no formato php,
  para cadastrar em banco de dados. Para realizar essa conversão iremos usar o banco json_decode.

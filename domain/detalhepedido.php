@@ -63,7 +63,7 @@ public function cadastro(){
     }
 }
 
-public function alterardetalhepedido(){
+public function alterarDetalhepedido(){
     $query = "update detalhepedido set id_pedido=:p, id_produto=:pr, quantidade=:q where id=:i";
 
     $stmt = $this->conexao->prepare($query);
