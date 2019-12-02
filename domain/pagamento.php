@@ -1,6 +1,6 @@
 <?php
 
-class pagamento{
+class Pagamento{
     public $id;
     public $id_pedido;
     public $valor;
