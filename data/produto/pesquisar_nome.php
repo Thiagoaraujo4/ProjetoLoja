@@ -97,7 +97,7 @@ if($stmt->rowCount() > 0){
         $array_item = array(
             "id"=>$id,
             "nome"=>$nome,
-            "descricao"=>utf8_encode($descricai),
+            "descricao"=>utf8_encode($descricao),
             "preco"=>$preco,
             "imagem1"=>$imagem1,
             "imagem2"=>$imagem2,
