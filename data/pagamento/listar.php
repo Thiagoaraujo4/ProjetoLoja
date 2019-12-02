@@ -46,7 +46,7 @@ o banco de dados e também a variável conexao. Utilizada para o uso dos comando
 
 */
 
-$pagamento = new pagamento($db);
+$pagamento = new Pagamento($db);
 
 
 /*
@@ -89,11 +89,12 @@ if($stmt->rowCount() > 0){
 
         $array_item = array(
             "id"=>$id,
-            "nome"=>$nome,
-            "cpf"=>$cpf,
-            "id_endereco"=>$id_endereco,
-            "id_contato"=>$id_contato,
-            "id_usuario"=>$id_usuario
+            "id_produto"=>$id_produto,
+            "valor"=>$valor,
+            "formapagamento"=>$formapagamento,
+            "descricao"=>$descricao,
+            "numeroparcelas"=>$numeroparcelas,
+            "valorparcelado"=>$valorparcelado,
 
         );
 
