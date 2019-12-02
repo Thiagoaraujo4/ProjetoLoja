@@ -30,13 +30,13 @@ O cliente ira enviar os dados no formato json. Porém nós precisamos os dados n
 $data = json_decode(file_get_contents("php://input"));
 
 #Verificar se os campos estão com dados.
-if(!empty($data->id_pedido) && !empty($data->valor) && !empty($data->formapagamento) && !empty($data->descricao) && !empty($data->numeroparcelas) && !empty($data->valorparcelado)){
+if(!empty($data->id_pedido) && !empty($data->valor) && !empty($data->formapagamento) && !empty($data->descricao) && !empty($data->numeroparcelas) && !empty($data->valorparcela)){
     $pagamento->id_pedido = $data->id_pedido;
     $pagamento->valor = $data->valor;
     $pagamento->formapagamento = $data->formapagamento;
     $pagamento->descricao = $data->descricao;
     $pagamento->numeroparcelas = $data->numeroparcelas;
-    $pagamento->valorparcelado = $data->valorparcelado;
+    $pagamento->valorparcela = $data->valorparcela;
 
     if($pagamento->cadastro()){
         header("HTTP/1.0 201");

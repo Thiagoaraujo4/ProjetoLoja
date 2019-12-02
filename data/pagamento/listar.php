@@ -89,12 +89,12 @@ if($stmt->rowCount() > 0){
 
         $array_item = array(
             "id"=>$id,
-            "id_produto"=>$id_produto,
+            "id_pedido"=>$id_pedido,
             "valor"=>$valor,
-            "formapagamento"=>$formapagamento,
-            "descricao"=>$descricao,
+            "formapagamento"=>utf8_encode($formapagamento),
+            "descricao"=>utf8_encode($descricao),
             "numeroparcelas"=>$numeroparcelas,
-            "valorparcelado"=>$valorparcelado,
+            "valorparcela"=>$valorparcela
 
         );
 
