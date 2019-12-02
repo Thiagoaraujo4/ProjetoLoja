@@ -59,7 +59,7 @@ public function cadastro(){
 }
 
 public function alterarContato(){
-    $query = "update contato set telefone=:t, email=:e, where id=:i";
+    $query = "update contato set telefone=:t, email=:e where id=:i";
 
     $stmt = $this->conexao->prepare($query);
 
