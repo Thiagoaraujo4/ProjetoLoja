@@ -32,7 +32,7 @@ $data = json_decode(file_get_contents("php://input"));
 
 #Verificar se os campos estão com dados.
 
-if(!empty($data->telefone) && !empty($data->email) && !empty($data->id)){
+if(!empty($data->telefone) && !empty($data->email)){
     $contato->telefone = $data->telefone;
     $contato->email = $data->email;
     $contato->id= $data->id;
