@@ -51,7 +51,7 @@ class Cliente{
 
     public function pesquisar_nome(){
         #Seleciona todos os campos da tabela cliente
-        $query = "select * from cliente where like ?";
+        $query = "select * from cliente where nome like ?";
         /*
         Foi criada a variável stmt(Stament -> Sentença) para guardar a preparação da
          consulta select que será executada posteriomente.
