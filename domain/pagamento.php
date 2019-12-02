@@ -7,7 +7,7 @@ class Pagamento{
     public $formapagamento;
     public $descricao;
     public $numeroparcelas;
-    public $valorparcelado;
+    public $valorparcela;
     
     
 
@@ -73,7 +73,7 @@ public function cadastro(){
     }
 }
 
-public function alterarpagamento(){
+public function alterarPagamento(){
     $query = "update pagamento set id_pedido=:p, valor=:v, formapagamento=:f, descricao=:d, numeroparcelas=:n, valorparcela=:vp where id=:i";
 
     $stmt = $this->conexao->prepare($query);
