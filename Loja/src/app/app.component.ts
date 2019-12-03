@@ -29,7 +29,12 @@ export class AppComponent {
     {
       title: 'Sair',
       url: '/sair',
-      icon: 'list'
+      icon: 'close-circle-outline'
+    },
+    {
+      title: 'Política de Privacidade',
+      url: '/politica',
+      icon: 'paper'
     }
   ];
 
