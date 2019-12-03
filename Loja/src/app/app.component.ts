@@ -33,7 +33,7 @@ export class AppComponent {
     },
     {
       title: 'Sair',
-      url: '/list',
+      url: '/sair',
       icon: 'list'
     }
   ];
