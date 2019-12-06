@@ -50,6 +50,7 @@ o banco de dados e também a variável conexao. Utilizada para o uso dos comando
 
 $produto = new Produto($db);
 
+$idproduto = $_GET["id"];
 $data = json_decode(file_get_contents("php://input"));
 
 
@@ -58,9 +59,9 @@ A variável  $stmt(Statement->sentenção) foi criada para guardar o retorno da 
 Dentro da função listar() temos uma consulta no formato sql que seleciona todos os usuário("Select * from produto")
 */
 
-$produto->id = $data->id;
+// $produto->id = $data->id;
 
-$stmt = $produto->pesquisar_id();
+$stmt = $produto->pesquisar_id($idproduto);
 
 /*
 Se a consulta retornar uma quantidade maior que 0(zero), então será construido um array com os dados dos 

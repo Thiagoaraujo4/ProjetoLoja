@@ -34,7 +34,7 @@ class Produto{
     }
 
 
-    public function pesquisar_id(){
+    public function pesquisar_id($idproduto){
         #Seleciona todos os campos da tabela produto
         $query = "select * from produto where id=?";
         /*
@@ -44,7 +44,7 @@ class Produto{
 
         $stmt = $this->conexao->prepare($query);
 
-        $stmt->bindParam(1,$this->id);
+        $stmt->bindParam(1,$idproduto);
         #execução da consulta e guarda de dados na variável stmt
         $stmt->execute();
         #retorna os dados do produto a camada data.p
