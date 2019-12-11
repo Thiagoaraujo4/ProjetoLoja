@@ -33,7 +33,10 @@ public function login(){
     /*
     Consulta para realizar o login. estamos usando o nome de usuario e a senha. O valor 
     */
-    $query = "select * from usuario where nomeusuario=? and senha=?";
+    $query = "select u.id as 'idusuario',u.nomeusuario,u.foto,c.id as 'idcliente',c.nome,e.* from 
+    usuario u inner join cliente c on u.id=c.id_usuario inner join 
+    endereco e on c.id_endereco = e.id where u.nomeusuario=? 
+    and u.senha=?;";
 
     /*
     Abaixo há uma ligação com os parametros da consulta(bind-ligação | Param -> paramêtros) as posições estão 
@@ -45,8 +48,8 @@ public function login(){
 
     $this->senha = md5($this->senha);
 
-    $stmt->bindParam(1,$this->nomeusario);
-    $stmt->binParam(2,$this->senha);
+    $stmt->bindParam(1,$this->nomeusuario);
+    $stmt->bindParam(2,$this->senha);
 
     $stmt->execute();
     

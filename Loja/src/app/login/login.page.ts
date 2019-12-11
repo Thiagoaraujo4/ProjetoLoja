@@ -10,11 +10,14 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
 export class LoginPage implements OnInit {
 
   private url:string = "http://localhost/dbloja/data/usuario/login.php";
-  public modelUS:Usuario;
+  public modelUs:Usuario;
 
   constructor(private router:Router, private http:HttpClient) {
-    this.modelUS.usuario="";
-    this.modelUS.senha="";
+
+    this.modelUs = new Usuario();
+
+    this.modelUs.usuario="";
+    this.modelUs.senha="";
 
    }
 
@@ -29,15 +32,21 @@ export class LoginPage implements OnInit {
     headers.append("Access-Control-Allow-Origin","*");
     
     var dados ={
-      "usuario":this.modelUS.usuario,
-      "senha":this.modelUS.senha
+      "usuario":this.modelUs.usuario,
+      "senha":this.modelUs.senha
     };
 
     this.http.get(this.url,{headers:headers,params:dados}).subscribe(
       data=>{
-        console.log(data);
+        if(!data==null){
+          this.router.navigate(['/home']);
+        }
+        else{
+          alert("Usuário ou senha incorretos");
+        }
       },
       error=>{
+        alert("Usuário ou senha incorretos");
         console.log("Erro ao tentar logar"+error);
       }
 
@@ -53,7 +62,7 @@ export class LoginPage implements OnInit {
 }
 export class Usuario{
   
-  usuario:string;
-  senha:string;
+  public usuario:string;
+  public senha:string;
 
 }
