@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpHeaders } from '@angular/common/http';
+import { HttpHeaders, HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -9,9 +9,14 @@ import { HttpHeaders } from '@angular/common/http';
 })
 export class CadastrarPage implements OnInit {
 
+  /*
+  Criação da função (DadosCadastrar) para pega os dados enviados do cadastrar.page.html, e enviar para o banco
+  de dados
+  */
    public model: DadosCadastrar = null;
+   private url:string = "http://localhost/dbloja/data/cadgeral/cadastro.php";
 
-  constructor() {
+  constructor(private http:HttpClient) {
 
     this.model = new DadosCadastrar();
 
@@ -50,7 +55,17 @@ export class CadastrarPage implements OnInit {
       "cep":this.model.cep,
       "nome":this.model.nome,
       "cpf":this.model.cpf
-    }
+    };
+
+    this.http.post(this.url,dados,{headers:headers}).subscribe(
+      data=>{
+        console.log(data);
+      },
+      erro=>{
+        console.log("Erro ao tentar cadastrar => "+erro);
+      }
+    );
+
   }
 
   ngOnInit() {
